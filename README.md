@@ -18,16 +18,10 @@
     > composer dump-autoload
     ```
 
-1. Copy `config/sample.config.php` as `config/config.php` and edit it accordingly:
-    ```console
-    > cp config/sample.config.php config/config.php
-    # Edit the file using your mysql database credentials
-    ```
-
 1. Import schema present in `schema/schema.sql` in your database.
 
 1. Serve the public folder at any port (say 8000):
     ```console
 	> cd public
-    > php -S localhost:8000
+    > php -S localhost:8080
     ```

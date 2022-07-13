@@ -1,0 +1,50 @@
+
+{% extends "templates/base.twig" %}
+
+{% block title %}My website home{% endblock %}
+
+{% block body %}
+
+
+
+  <form action = "/register" method = "POST" >
+    <div class="mb-3">
+    <label>Name   :</label>
+    <input type="text" name="name" class="form-control" style="    color: #000;
+    width: 50%;
+    padding: 7px 15px;
+    margin: 8px 0;
+    display: inline-block; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" > 
+  </div>
+
+  <div class="mb-3">
+    <label>Username:</label>
+    <input type="text" name="username" class="form-control" style="    color: #000;
+    width: 50%;
+    padding: 7px 15px;
+    margin: 8px 0;
+    display: inline-block; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" > 
+  </div>
+
+  <div class="mb-3">
+    <label>Password:</label>
+    <input type="password" name="password" class="form-control" style="    color: #000;
+    width: 50%;
+    padding: 7px 15px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;" >
+  </div>
+
+  <div class="mb-3">
+
+  <button type="submit" class="btn btn-primary">Register</button>
+
+  </div>
+</form>
+
+
+{% endblock %}
+

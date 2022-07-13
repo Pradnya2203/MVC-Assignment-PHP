@@ -19,18 +19,20 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mvc_app`
+-- Database: `mvc`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `posts`
+-- Table structure for table `client`
 --
 
-CREATE TABLE `posts` (
-  `id` int(11) NOT NULL,
-  `caption` varchar(280) NOT NULL
+CREATE TABLE `client` (
+  `name` varchar(255) ,
+  `username` varchar(255) ,
+  `password` varchar(255),
+  `fine` int SET DEFAULT(0)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -40,20 +42,30 @@ CREATE TABLE `posts` (
 --
 -- Indexes for table `posts`
 --
-ALTER TABLE `posts`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `client`
+  ADD PRIMARY KEY (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
+CREATE TABLE `books` (
+  `bookname` varchar(255) ,
+  `username` varchar(255) ,
+  `status` int SET DEFAULT(0),
+  `issued_on` datetime,
+  `returned_on` datetime,
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 --
 -- AUTO_INCREMENT for table `posts`
 --
-ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-COMMIT;
 
+CREATE TABLE `Book` (
+  `bookname` varchar(255) ,
+  `number` int SET DEFAULT(0)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+ALTER TABLE `Book`
+  ADD PRIMARY KEY (`bookname`);

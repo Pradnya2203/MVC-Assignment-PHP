@@ -1,23 +1,43 @@
+
 {% extends "templates/base.twig" %}
 
 {% block title %}My website home{% endblock %}
 
 {% block body %}
-<h1>Hello, World!</h1>
-<form action="/" method="POST">
-  <p><textarea name="caption" placeholder="Caption"></textarea></p>
-  <p><input type="submit" /></p>
-  {% if posted %}
-  <p>
-    <em><strong>Successfully</strong> posted!</em>
-  </p>
-  {% endif %}
+<h1>Welcome to Artemis Library</h1>
+<p><b>We help you find the stories you love!</b></p>
+<form action = "/client" method = "POST" >
+  <div class="mb-3">
+    <label>Username</label>
+    <input type="text" name="username" class="form-control" style="    color: #000;
+    width: 50%;
+    padding: 7px 15px;
+    margin: 8px 0;
+    display: inline-block; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" > 
+  </div>
+
+  <div class="mb-3">
+    <label>Password</label>
+    <input type="password" name="password" class="form-control" style="    color: #000;
+    width: 50%;
+    padding: 7px 15px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;" >
+  </div>
+
+  <div class="mb-3">
+
+  <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+
+<form style="display:inline" action = "/register" method = "GET" >
+   <button type="submit" class="btn btn-primary">Register</button>
+
 </form>
-<ol>
-  {% for post in posts %}
-  <li>
-    <a href="/post/{{ post.id }}">{{ post.caption }}</a>
-  </li>
-  {% endfor %}
-</ol>
+  </div>
+
+
 {% endblock %}

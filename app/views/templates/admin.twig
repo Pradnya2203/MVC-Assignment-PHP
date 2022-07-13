@@ -1,0 +1,138 @@
+{% extends "templates/base.twig" %}
+
+{% block title %} Admin view{% endblock %}
+
+{% block body %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+  </head>
+  <body>
+
+
+
+<h2>Welcome to Admin Portal</h2>
+
+
+<h3> Books Available In Library </h3>
+    
+    <table style="width:1000px; margin=3px " class="table " id="books">
+        <thead>
+            <tr align="center">
+              
+                <th>
+                    Book Name
+                </th>
+                  <th>
+                    Number of books
+                </th>
+           
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for bookdata in booksavailable %}
+                   
+                <tr align="center">
+                  <td>
+                        {{ bookdata.bookname }} 
+                    </td>
+
+                    <td>
+                        {{ bookdata.number }}
+                    </td>
+                 
+       
+            {% endfor %}
+        </tbody>
+</table>
+
+
+<form action="/addBook" method="POST">
+
+  <div class="mb-3">
+    <label>Book Name</label>
+    <input type="text" name="bookname" class="form-control" style="    color: #000;
+    width: 50%;
+    padding: 7px 15px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;" > 
+  </div>
+
+  <div class="mb-3">
+    <label>Number</label>
+    <input type="text" name="number" class="form-control" style = "  color: #000;
+    width: 50%;
+    padding: 7px 15px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;" >
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Add Book</button>
+  
+</form>
+
+<h3> Pending requests </h3>
+    
+    <table style="width:1000px " class="table table-dark table-striped" id="books">
+        <thead>
+            <tr align="center">
+                <th>
+                    Book Name
+                </th>
+                <th>
+                    Username
+                </th>
+                 <th>
+                    Accept
+                </th>   
+                 <th>
+                    Deny
+                </th>   
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for bookdata in requests %}
+                   
+                <tr align="center">
+
+                    <td>
+                        {{ bookdata.bookname }}
+                    </td>
+                    <td>
+                        {{ bookdata.username }} 
+                    </td>
+                    <td>   
+                       <form action= "/acceptReq" method = "POST">
+                     <input type="text" name="bookname" hidden value = "{{ bookdata.bookname }}">
+                     <input type="text" name="username" hidden value="{{ bookdata.username }}">                       
+                     <button  type="submit" class="btn btn-primary">Accept</button>
+                     </form> 
+                    </td>
+                     <td>
+                     <form action= "/denyReq" method = "POST">
+                     <input type="text" name="bookname" hidden value = "{{ bookdata.bookname }}">
+                     <input type="text" name="username" hidden value="{{ bookdata.username }}">                       
+                     <button  type="submit" class="btn btn-primary">Deny</button>
+                     </form> 
+                   
+                    </td>
+                {% endfor %}
+            </tbody>
+        </table>
+
+</body>
+</html>
+{% endblock %}
+

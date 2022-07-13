@@ -1,0 +1,99 @@
+
+
+{% extends "templates/base.twig" %}
+
+{% block title %} Client view - {{ client.username }}{% endblock %}
+
+{% block body %}
+<h1>Welcome {{ client.name }}</h1>
+
+<h2> Books Available In Library </h2>
+    
+    <table style="width:1000px ; margin=3px" id="books">
+        <thead>
+            <tr style="height:10px" align="center">
+                <th>
+                    Book Name
+                </th>
+                <th>
+                    Number of books
+                </th>
+                
+                 <th>
+                    Checkin
+                </th>     
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for bookdata in booksavailable %}
+                   
+                <tr align="center">
+                   <td>
+                        {{ bookdata.bookname }} 
+                    </td>
+
+                    <td>
+                        {{ bookdata.number }}
+                    </td>
+                 
+                    <td>
+                    <form action= "/checkIn" method = "POST">
+                    <input type="text" name="username" hidden value="{{ client.username }}">
+                     <input type="text" name="bookname" hidden value = "{{ bookdata.bookname }}">
+                        
+                         <button  type="submit" class="btn btn-primary">Check In</button>
+                          </form> 
+                    </td>       
+                    
+            {% endfor %}
+        </tbody>
+</table>
+
+
+<h2> My Books </h2>
+    
+    <table style="width:1000px "class="table table-dark table-striped" id="books">
+        <thead>
+            <tr align="center">
+                
+                <th>
+                    Book Name
+                </th>
+                 <th>
+                    Check Out
+                </th>  
+                 <th>
+                    Date Issued
+                </th>   
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for data in myBooks %}
+                   
+                <tr align="center">   
+                    <td>
+                        {{ data.bookname }} 
+                    </td>
+                    <td>
+                     <form action= "/checkOut" method = "POST">
+                      <input type="hidden" id="bookname" name="bookname" value="{{ data.bookname }}">
+                       <input type="hidden" id="username" name="username" value="{{ client.username }}">
+                                       
+                     <button  type="submit" class="btn btn-primary">Check Out</button>
+                     </form> 
+                    </td>      
+                    <td>
+                        {{ data.issued_on }}
+                    </td>
+                     
+            {% endfor %}
+        </tbody>
+</table>
+
+
+<p >The amount of pending fine is {{ client.fine }}</p>
+
+
+{% endblock %}

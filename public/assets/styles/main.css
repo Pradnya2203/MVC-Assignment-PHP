@@ -1,3 +1,75 @@
 body {
-    background: yellow;
+    background-image: url("../images/bookstore.jpg");
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    margin: 3%;
+    color: #f2f2f2;
+    font-family: 'Times New Roman', serif;
 }
+h1{
+    color:#fffeff;
+}
+a {
+    color: whitesmoke;
+    text-decoration: none;
+  }
+
+  #books {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #books td, #books th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    color: #1c1113;
+  }
+  
+  #books tr:nth-child(even){background-color: #a3765c;}
+  #books tr:nth-child(odd){background-color: #dbc1ac;}
+  
+  #books tr:hover {background-color: #afa695;}
+  
+  #books th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: rgb(163,118,92) ;
+    color:  #1c1113;
+  }
+
+  /* input[type=text],input[type=password], select {
+    color: #000;
+    width: 50%;
+    padding: 7px 15px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+   */
+  button[type=submit] {
+    width: 40%;
+    background-color: #3f2b1c;
+    color: white;
+    padding: 10px 16px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button[type=submit]:hover {
+    background-color: #392719;
+  }
+  
+  .mb-3 {
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 35%;
+    /* background-color: #f2f2f2; */
+    padding: 20px;
+  }
