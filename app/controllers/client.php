@@ -27,7 +27,7 @@ class Client {
 
             $_SESSION["Username"] = $Username;
             $_SESSION["Role"] = "Admin";
-            if($Result['username'] == "artemis"){
+            if($Result['username'] === "artemis"){
                 echo \View\Loader::make()->render("templates/admin.twig",array(
                     "requests" => \Model\Book::requests(),
                     "booksavailable" => \Model\Book::findAvailable(),
