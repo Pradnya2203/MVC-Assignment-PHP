@@ -21,21 +21,7 @@ class Client {
         $Result = $Sth->fetch();
         return $Result;
     }
-
-    public static function clientData($username)
-    {
-        $db = \DB::get_instance();
-
-        $Sth = $db->prepare("SELECT * FROM client WHERE username= ?");
-        $Sth->execute([$username]);
-
-        $Result = $Sth->fetch();
-        return $Result;
-    }
-
-
-    
-    
+ 
 
 
 }

@@ -2,16 +2,15 @@
 
 namespace Controller;
 
-
-session_start();
-
 class Register {
+    
     public function get() {
         
         echo \View\Loader::make()->render("templates/register.twig");
       }
     public function post()
     {
+        session_start();
         $Name = $_POST["name"];
         $Username = $_POST["username"];
         $Password = $_POST["password"];
